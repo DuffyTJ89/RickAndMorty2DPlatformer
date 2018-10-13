@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 297863810}
   - component: {fileID: 297863809}
   - component: {fileID: 297863808}
+  - component: {fileID: 297863812}
   m_Layer: 0
   m_Name: rickSprite
   m_TagString: Untagged
@@ -235,6 +236,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &297863812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 297863807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d008a033160cecc46a83a34407a64c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rickSpeed: 10
+  facingRight: 1
+  playerJumpPower: 1250
+  moveX: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
