@@ -6,8 +6,8 @@ public class Rick_Move_Pro : MonoBehaviour {
 
     public int rickSpeed = 10;
     public bool facingRight = true;
-    public int playerJumpPower = 1250;
-    public float moveX;
+    public int rickJumpPower = 1250;
+    private float moveX;
 
 	// Update is called once per frame
 	void Update () {
@@ -21,8 +21,11 @@ public class Rick_Move_Pro : MonoBehaviour {
         //controls
 
         moveX = Input.GetAxis("Horizontal");
-        
-
+        if (Input.GetButtonDown ("Jump"))
+        {
+            Jump();
+        }
+            
         //animations
 
         //player direction
@@ -42,15 +45,19 @@ public class Rick_Move_Pro : MonoBehaviour {
 
     }
 
-    void jump ()
+    void Jump ()
     {
         //jumping code
-
+        GetComponent<Rigidbody2D>().AddForce(Vector2.up * rickJumpPower);
 
     }
 
     void FlipPlayer()
     {
-
+        facingRight = !facingRight; //we dont want to be facing right anymore
+        Vector2 localScale = gameObject.transform.localScale;
+        localScale.x *= -1; //flip the player by making the value negitive 
+        transform.localScale = localScale;
+        
     }
 }
