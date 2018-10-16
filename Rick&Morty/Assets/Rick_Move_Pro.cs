@@ -5,9 +5,10 @@ using UnityEngine;
 public class Rick_Move_Pro : MonoBehaviour {
 
     public int rickSpeed = 10;
-    public bool facingRight = true;
+    public bool facingRight = false;
     public int rickJumpPower = 1250;
     private float moveX;
+    public bool isGrounded;
 
 	// Update is called once per frame
 	void Update () {
@@ -21,7 +22,7 @@ public class Rick_Move_Pro : MonoBehaviour {
         //controls
 
         moveX = Input.GetAxis("Horizontal");
-        if (Input.GetButtonDown ("Jump"))
+        if (Input.GetButtonDown ("Jump") && isGrounded == true)
         {
             Jump();
         }
@@ -49,6 +50,7 @@ public class Rick_Move_Pro : MonoBehaviour {
     {
         //jumping code
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * rickJumpPower);
+        isGrounded = false;
 
     }
 
@@ -59,5 +61,14 @@ public class Rick_Move_Pro : MonoBehaviour {
         localScale.x *= -1; //flip the player by making the value negitive 
         transform.localScale = localScale;
         
+    }
+
+    void OnCollisionEnter2D (Collision2D col)
+    {
+        Debug.Log("Player has collided with" + col.collider.name);
+        if(col.gameObject.tag == "ground")
+        {
+            isGrounded = true;
+        }
     }
 }

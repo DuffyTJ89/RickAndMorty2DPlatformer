@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - deathZone
+  - ground
   layers:
   - Default
   - TransparentFX
