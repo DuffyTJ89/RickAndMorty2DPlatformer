@@ -26,8 +26,15 @@ public class Player_Score : MonoBehaviour {
     void OnTriggerEnter2D (Collider2D trig)
     {
         //Debug.Log("End level");
-
-        CountScore();
+        if (trig.gameObject.name =="EndLevel")
+        {
+            CountScore();
+        }
+        if (trig.gameObject.name == "MegaSeed")
+        {
+            playerScore += 10;
+            Destroy(trig.gameObject);
+        }
     }
 
     void CountScore()

@@ -17,6 +17,11 @@ public class morty_Move : MonoBehaviour {
         if (hit.distance < 0.9f)
         {
             FlipMorty();
+
+            if (hit.collider.tag == "Player")
+            {
+                Destroy(hit.collider.gameObject);
+            }
         }
 	}
 

@@ -10,23 +10,23 @@ public class Rick_Move_Pro : MonoBehaviour {
     private float moveX;
     public bool isGrounded;
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update() {
 
-        PlayerMove();  
-		
-	}
+        PlayerMove();
+        PlayerRaycast();
+    }
 
     void PlayerMove()
     {
         //controls
 
         moveX = Input.GetAxis("Horizontal");
-        if (Input.GetButtonDown ("Jump") && isGrounded == true)
+        if (Input.GetButtonDown("Jump") && isGrounded == true)
         {
             Jump();
         }
-            
+
         //animations
 
         //player direction
@@ -46,7 +46,7 @@ public class Rick_Move_Pro : MonoBehaviour {
 
     }
 
-    void Jump ()
+    void Jump()
     {
         //jumping code
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * rickJumpPower);
@@ -60,14 +60,27 @@ public class Rick_Move_Pro : MonoBehaviour {
         Vector2 localScale = gameObject.transform.localScale;
         localScale.x *= -1; //flip the player by making the value negitive 
         transform.localScale = localScale;
+
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
         
     }
 
-    void OnCollisionEnter2D (Collision2D col)
+    void PlayerRaycast()
     {
-        Debug.Log("Player has collided with" + col.collider.name);
-        if(col.gameObject.tag == "ground")
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down);
+
+        if (hit != null && hit.collider != null && hit.distance < 0.9f && hit.collider.tag == "enemy")
         {
+            //Debug.Log("Touched enemy");
+            GetComponent<Rigidbody2D>().AddForce(Vector2.up * 1000);
+        }
+
+        if (hit != null && hit.collider != null && hit.distance < 0.9f && hit.collider.tag != "enemy")
+        {
+            //Debug.Log("Touched enemy");
             isGrounded = true;
         }
     }
