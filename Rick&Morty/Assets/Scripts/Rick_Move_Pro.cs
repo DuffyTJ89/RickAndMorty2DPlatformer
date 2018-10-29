@@ -75,7 +75,16 @@ public class Rick_Move_Pro : MonoBehaviour {
         if (hit != null && hit.collider != null && hit.distance < 0.9f && hit.collider.tag == "enemy")
         {
             //Debug.Log("Touched enemy");
+            //jump up from enemy
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * 1000);
+
+            //kill enemy
+            hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 200);
+            hit.collider.gameObject.GetComponent<Rigidbody2D>().gravityScale = 8;
+            hit.collider.gameObject.GetComponent<Rigidbody2D>().freezeRotation = false;
+            hit.collider.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            hit.collider.gameObject.GetComponent<morty_Move>().enabled = false;
+            ///Destroy(hit.collider.gameObject);
         }
 
         if (hit != null && hit.collider != null && hit.distance < 0.9f && hit.collider.tag != "enemy")

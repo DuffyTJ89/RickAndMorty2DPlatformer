@@ -23,6 +23,7 @@ public class morty_Move : MonoBehaviour {
                 Destroy(hit.collider.gameObject);
             }
         }
+
 	}
 
     void FlipMorty()
