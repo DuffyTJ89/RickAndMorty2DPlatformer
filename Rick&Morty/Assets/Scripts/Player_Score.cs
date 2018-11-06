@@ -29,6 +29,8 @@ public class Player_Score : MonoBehaviour {
         if (trig.gameObject.name =="EndLevel")
         {
             CountScore();
+            Debug.Log("Level End");
+            SceneManager.LoadScene(2);
         }
         if (trig.gameObject.name == "MegaSeed")
         {
