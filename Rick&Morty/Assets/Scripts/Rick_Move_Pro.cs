@@ -9,6 +9,12 @@ public class Rick_Move_Pro : MonoBehaviour {
     public int rickJumpPower = 1250;
     private float moveX;
     public bool isGrounded;
+    public AudioSource jumpSound;
+
+    void Start()
+    {
+        jumpSound = GetComponent<AudioSource>();
+    }
 
     // Update is called once per frame
     void Update() {
@@ -48,6 +54,7 @@ public class Rick_Move_Pro : MonoBehaviour {
 
     void Jump()
     {
+        jumpSound.Play();
         //jumping code
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * rickJumpPower);
         isGrounded = false;
