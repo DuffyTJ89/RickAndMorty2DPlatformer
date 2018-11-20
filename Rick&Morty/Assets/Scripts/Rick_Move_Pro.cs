@@ -54,7 +54,7 @@ public class Rick_Move_Pro : MonoBehaviour {
 
     void Jump()
     {
-        jumpSound.Play();
+        //jumpSound.Play();
         //jumping code
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * rickJumpPower);
         isGrounded = false;
