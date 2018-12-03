@@ -7,6 +7,7 @@ TagManager:
   - deathZone
   - ground
   - enemy
+  - EndGame
   layers:
   - Default
   - TransparentFX

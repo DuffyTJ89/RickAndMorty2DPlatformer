@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Player_Score : MonoBehaviour {
 
-    private float timeLeft = 125;
+    private float timeLeft = 10;
     public int playerScore = 0;
     public GameObject timeLeftUI;
     public GameObject playerScoreUI;
@@ -26,7 +26,7 @@ public class Player_Score : MonoBehaviour {
 
         if (timeLeft< 0.1f)
         {
-            SceneManager.LoadScene("FirstScene"); //player has died because they ran out of time
+            SceneManager.LoadScene("DeadMenu"); //player has died because they ran out of time
         }
 	}
 
@@ -37,7 +37,15 @@ public class Player_Score : MonoBehaviour {
         {
             CountScore();
             Debug.Log("Level End");
-            SceneManager.LoadScene(2);
+            if (trig.gameObject.tag == "EndGame")
+            {
+                SceneManager.LoadScene("EndMenu");
+            }
+            else
+            {
+                SceneManager.LoadScene(2);
+            }
+                
         }
         if (trig.gameObject.name == "MegaSeed")
         {
