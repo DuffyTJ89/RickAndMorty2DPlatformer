@@ -9,11 +9,11 @@ public class Rick_Move_Pro : MonoBehaviour {
     public int rickJumpPower = 1250;
     private float moveX;
     public bool isGrounded;
-    public AudioSource jumpSound;
+    //public AudioSource jumpSound;
 
     void Start()
     {
-        jumpSound = GetComponent<AudioSource>();
+        //jumpSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -79,7 +79,7 @@ public class Rick_Move_Pro : MonoBehaviour {
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down);
 
-        if (hit != null && hit.collider != null && hit.distance < 0.9f && hit.collider.tag == "enemy")
+        if (hit != null && hit.collider != null && hit.distance < 0.9f && hit.collider.tag == "enemy") //error for jumping over gap
         {
             //Debug.Log("Touched enemy");
             //jump up from enemy

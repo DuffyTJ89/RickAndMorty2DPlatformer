@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Level2.unity
     guid: 1817bc54be42fb649bb0feba115e8616
+  - enabled: 1
+    path: Assets/DeadMenu.unity
+    guid: 0fa0e338f359fda4a9cecee43f018b19
   m_configObjects: {}

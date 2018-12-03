@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class morty_Move : MonoBehaviour {
 
@@ -20,7 +21,11 @@ public class morty_Move : MonoBehaviour {
 
             if (hit.collider.tag == "Player")
             {
+
                 Destroy(hit.collider.gameObject);
+                //gameObject = null;
+                SceneManager.LoadScene("DeadMenu"); //player dead, return to menu
+
             }
         }
 

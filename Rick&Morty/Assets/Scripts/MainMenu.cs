@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour {
 
 	// Use this for initialization
 	public void Play () {
+        
         SceneManager.LoadScene(1);// start a new game by calling the first scene
     }
 	
