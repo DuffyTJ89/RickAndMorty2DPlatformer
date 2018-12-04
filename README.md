@@ -1,6 +1,8 @@
 # Rick-Morty2DPlatformer
 
-developer diary is in the wiki.
+# Developer diary and Test Plan is in the wiki.
+
+------
 
 The project was to develop a 2D mario style platformer with the following features :
 
