@@ -1,6 +1,6 @@
 # Rick-Morty2DPlatformer
 
-# Developer diary and Test Plan is in the wiki.
+### Developer diary and Test Plan is in the wiki.
 
 ------
 
