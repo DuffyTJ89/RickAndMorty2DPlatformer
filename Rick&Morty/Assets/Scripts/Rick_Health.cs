@@ -18,7 +18,7 @@ public class Rick_Health : MonoBehaviour
     }
     void Die()
     {
-        SceneManager.LoadScene("Level1"); //start a new game if the player has died
+        SceneManager.LoadScene("DeadMenu"); //start a new game if the player has died
     }
 
    
